@@ -1,9 +1,9 @@
 package com.robertotassone;
 
 import javafx.application.Application;
-import javafx.geometry.Pos;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public final class App extends Application {
@@ -15,12 +15,11 @@ public final class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Label label = new Label("List Intersection");
-        label.setAlignment(Pos.CENTER);
-        Scene scene = new Scene(label, 400, 300);
+        Parent root = FXMLLoader.load(getClass().getResource("/ui.fxml"));
 
+        primaryStage.setScene(new Scene(root));
+        primaryStage.centerOnScreen();
         primaryStage.setTitle("List Intersection");
-        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
