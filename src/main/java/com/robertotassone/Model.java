@@ -12,26 +12,31 @@ public class Model {
     private LinkedList<Integer> list;
     private HashSet<Integer> hashset;
     private int MAX_INT_LIMIT = 100;
+    private int intersectionSize;
+    private long computationTime;
 
     public Model() {
         clearData();
     }
 
-    public LinkedList<Integer> intersection() throws Exception {
+    public void intersection() throws Exception {
         if (sizeListA <= 0 || sizeListB <= 0)
             throw new Exception("Sizes must be greater than zero.");
         if (list == null || list.isEmpty() || hashset == null || hashset.isEmpty())
             throw new Exception("Lists can not be empty.");
-        LinkedList<Integer> intersection = new LinkedList<Integer>();
+
+        long startTime = System.currentTimeMillis();
         for (Integer i : list)
             if (hashset.contains(i))
-                intersection.add(i);
-        return intersection;
+                intersectionSize++;
+        long endTime = System.currentTimeMillis();
+        computationTime = endTime - startTime;
     }
 
     private void clearData() {
         list = new LinkedList<Integer>();
         hashset = new HashSet<Integer>();
+        intersectionSize = 0;
     }
 
     public void generateData() throws Exception {
@@ -71,6 +76,22 @@ public class Model {
 
     public void setListAinHashSet(boolean listAinHashSet) {
         this.listAinHashSet = listAinHashSet;
+    }
+
+    public int getIntersectionSize() {
+        return intersectionSize;
+    }
+
+    public void setIntersectionSize(int intersectionSize) {
+        this.intersectionSize = intersectionSize;
+    }
+
+    public long getComputationTime() {
+        return computationTime;
+    }
+
+    public void setComputationTime(long computationTime) {
+        this.computationTime = computationTime;
     }
 
 }
