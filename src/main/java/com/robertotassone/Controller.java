@@ -29,11 +29,6 @@ public class Controller {
         model.setSizeListB(sizeListB);
         model.setListAinHashSet(true); // TODO: get choice from UI
         try {
-            model.generateData();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        try {
             model.intersection();
         } catch (Exception e) {
             e.printStackTrace();

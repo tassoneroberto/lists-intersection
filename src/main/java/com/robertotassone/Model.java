@@ -22,10 +22,27 @@ public class Model {
     public void intersection() throws Exception {
         if (sizeListA <= 0 || sizeListB <= 0)
             throw new Exception("Sizes must be greater than zero.");
-        if (list == null || list.isEmpty() || hashset == null || hashset.isEmpty())
-            throw new Exception("Lists can not be empty.");
+        clearData();
 
         long startTime = System.currentTimeMillis();
+        Random r = new Random();
+        if (listAinHashSet) {
+            // Fill list B
+            for (int i = 0; i < sizeListB; i++)
+                list.add(r.nextInt(MAX_INT_LIMIT));
+            // Fill list A (HashSet)
+            for (int i = 0; i < sizeListA; i++)
+                hashset.add(r.nextInt(MAX_INT_LIMIT));
+        }
+        else {
+            // Fill list A
+            for (int i = 0; i < sizeListA; i++)
+                list.add(r.nextInt(MAX_INT_LIMIT));
+            // Fill list B (HashSet)
+            for (int i = 0; i < sizeListB; i++)
+                hashset.add(r.nextInt(MAX_INT_LIMIT));
+        }
+
         for (Integer i : list)
             if (hashset.contains(i))
                 intersectionSize++;
@@ -37,21 +54,6 @@ public class Model {
         list = new LinkedList<Integer>();
         hashset = new HashSet<Integer>();
         intersectionSize = 0;
-    }
-
-    public void generateData() throws Exception {
-        if (sizeListA <= 0 || sizeListB <= 0)
-            throw new Exception("Sizes must be greater than zero.");
-        clearData();
-        Random r = new Random();
-        if (listAinHashSet) {
-            // Fill list B
-            for (int i = 0; i < sizeListB; i++)
-                list.add(r.nextInt(MAX_INT_LIMIT));
-            // Fill list A (HashSet)
-            for (int i = 0; i < sizeListA; i++)
-                hashset.add(r.nextInt(MAX_INT_LIMIT));
-        }
     }
 
     public int getSizeListA() {
