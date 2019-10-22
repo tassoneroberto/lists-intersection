@@ -5,20 +5,38 @@
 <?import javafx.scene.control.Label ?>
 <?import javafx.scene.control.TextField ?>
 <?import javafx.scene.layout.Pane ?>
+<?import javafx.collections.FXCollections ?>
+<?import java.lang.String ?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="178.0" prefWidth="402.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.robertotassone.Controller">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="420.0" 
+   xmlns="http://javafx.com/javafx/11.0.1" 
+   xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.robertotassone.Controller">
    <children>
-      <Button layoutX="26.0" layoutY="106.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="157.0" text="RUN" onAction="#runIntersection"  fx:id="btnRun" />
+      <Button layoutX="26.0" layoutY="106.0" mnemonicParsing="false" prefHeight="70.0" prefWidth="157.0" text="RUN" onAction="#runIntersection" fx:id="btnRun" />
       <Label layoutX="18.0" layoutY="22.0" text="List A size:" />
-      <TextField layoutX="88.0" layoutY="21.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfSizeA" /> <!-- Size A -->
+      <!-- List A Size-->
+      <TextField layoutX="88.0" layoutY="21.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfSizeA" />
       <Label layoutX="18.0" layoutY="59.0" text="List B size:" />
-      <TextField layoutX="88.0" layoutY="55.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfSizeB" /><!-- Size B -->
+      <!-- List B Size-->
+      <TextField layoutX="88.0" layoutY="55.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfSizeB" />
       <Label layoutX="199.0" layoutY="21.0" text="List to HashSet:" />
-      <ChoiceBox layoutX="302.0" layoutY="18.0" prefHeight="25.0" prefWidth="89.0" fx:id="cbListToHashSet" /><!-- List to put inside HashSet -->
+      <!-- List to put inside HashSet -->
+      <ChoiceBox layoutX="302.0" layoutY="18.0" prefHeight="25.0" prefWidth="89.0" fx:id="cbListToHashSet" value="A">
+         <items>
+            <FXCollections fx:factory="observableArrayList">
+               <String fx:value="A" />
+               <String fx:value="B" />
+            </FXCollections>
+         </items>
+      </ChoiceBox>
       <Label layoutX="199.0" layoutY="104.0" text="Output size:" />
-      <TextField layoutX="289.0" layoutY="100.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfOutputSize" /><!-- Output list size -->
-      <Label layoutX="199.0" layoutY="138.0" text="Time:" />
-      <TextField layoutX="289.0" layoutY="134.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfTime" /><!-- Time to compute the intersection -->
+      <!-- Output list size -->
+      <TextField disable="true" layoutX="310.0" layoutY="100.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfOutputSize" />
+      <Label layoutX="199.0" layoutY="138.0" text="Fill lists (ms):" />
+      <!-- Time to compute the population of the structures -->
+      <TextField disable="true" layoutX="310.0" layoutY="134.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfTimePopulation" />
+      <Label layoutX="199.0" layoutY="172.0" text="Intersection (ms):" />
+      <!-- Time to compute the intersection -->
+      <TextField disable="true" layoutX="310.0" layoutY="168.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfTimeIntersection" />
    </children>
 </Pane>

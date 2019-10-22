@@ -11,43 +11,41 @@ public class Model {
     private boolean listAinHashSet;
     private LinkedList<Integer> list;
     private HashSet<Integer> hashset;
-    private int MAX_INT_LIMIT = 100;
     private int intersectionSize;
-    private long computationTime;
+    private long populationTime;
+    private long intersectionTime;
+    private Random r;
 
     public Model() {
+        r = new Random();
         clearData();
     }
 
-    public void intersection() throws Exception {
-        if (sizeListA <= 0 || sizeListB <= 0)
-            throw new Exception("Sizes must be greater than zero.");
+    public void intersection() {
         clearData();
-
-        long startTime = System.currentTimeMillis();
-        Random r = new Random();
+        int sizeList, sizeHashSet;
         if (listAinHashSet) {
-            // Fill list B
-            for (int i = 0; i < sizeListB; i++)
-                list.add(r.nextInt(MAX_INT_LIMIT));
-            // Fill list A (HashSet)
-            for (int i = 0; i < sizeListA; i++)
-                hashset.add(r.nextInt(MAX_INT_LIMIT));
+            sizeList = sizeListB;
+            sizeHashSet = sizeListA;
+        } else {
+            sizeList = sizeListA;
+            sizeHashSet = sizeListB;
         }
-        else {
-            // Fill list A
-            for (int i = 0; i < sizeListA; i++)
-                list.add(r.nextInt(MAX_INT_LIMIT));
-            // Fill list B (HashSet)
-            for (int i = 0; i < sizeListB; i++)
-                hashset.add(r.nextInt(MAX_INT_LIMIT));
+        long startTimePopulation = System.currentTimeMillis();
+        // Fill List
+        for (int i = 0; i < sizeList; i++)
+            list.add(r.nextInt(Integer.MAX_VALUE));
+        // Fill HashSet
+        while (hashset.size() < sizeHashSet) {
+            hashset.add(r.nextInt(Integer.MAX_VALUE));
         }
+        populationTime = System.currentTimeMillis() - startTimePopulation;
 
+        long startTimeIntersection = System.currentTimeMillis();
         for (Integer i : list)
             if (hashset.contains(i))
                 intersectionSize++;
-        long endTime = System.currentTimeMillis();
-        computationTime = endTime - startTime;
+        intersectionTime = System.currentTimeMillis() - startTimeIntersection;
     }
 
     private void clearData() {
@@ -88,12 +86,20 @@ public class Model {
         this.intersectionSize = intersectionSize;
     }
 
-    public long getComputationTime() {
-        return computationTime;
+    public long getPopulationTime() {
+        return populationTime;
     }
 
-    public void setComputationTime(long computationTime) {
-        this.computationTime = computationTime;
+    public void setPopulationTime(long populationTime) {
+        this.populationTime = populationTime;
+    }
+
+    public long getIntersectionTime() {
+        return intersectionTime;
+    }
+
+    public void setIntersectionTime(long intersectionTime) {
+        this.intersectionTime = intersectionTime;
     }
 
 }
