@@ -8,7 +8,7 @@
 <?import javafx.collections.FXCollections ?>
 <?import java.lang.String ?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="210.0" prefWidth="420.0" 
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="420.0" 
    xmlns="http://javafx.com/javafx/11.0.1" 
    xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.robertotassone.Controller">
    <children>
@@ -38,5 +38,8 @@
       <Label layoutX="199.0" layoutY="172.0" text="Intersection (ms):" />
       <!-- Time to compute the intersection -->
       <TextField disable="true" layoutX="310.0" layoutY="168.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfTimeIntersection" />
+      <Label layoutX="199.0" layoutY="206.0" text="Total time (ms):" />
+      <!-- Total time -->
+      <TextField disable="true" layoutX="310.0" layoutY="202.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfTimeTotal" />
    </children>
 </Pane>

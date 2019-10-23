@@ -31,6 +31,9 @@ public class Controller {
     @FXML
     private TextField tfTimeIntersection;
 
+    @FXML
+    private TextField tfTimeTotal;
+
     private Model model;
 
     public Controller() {
@@ -68,6 +71,8 @@ public class Controller {
         tfOutputSize.setText(String.format("%d", model.getIntersectionSize()));
         tfTimePopulation.setText(String.format("%d", model.getPopulationTime()));
         tfTimeIntersection.setText(String.format("%d", model.getIntersectionTime()));
+        tfTimeTotal.setText(String.format("%d", model.getPopulationTime() + model.getIntersectionTime()));
+
     }
 
 }
