@@ -29,17 +29,17 @@
             </FXCollections>
          </items>
       </ChoiceBox>
-      <Label layoutX="199.0" layoutY="104.0" text="Output size:" />
       <!-- Output list size -->
+      <Label layoutX="199.0" layoutY="104.0" text="Result size:" />
       <TextField disable="true" layoutX="310.0" layoutY="100.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfOutputSize" />
-      <Label layoutX="199.0" layoutY="138.0" text="Fill lists (ms):" />
-      <!-- Time to compute the population of the structures -->
+      <!-- Time to transfer the list inside the hashset -->
+      <Label layoutX="199.0" layoutY="138.0" text="List to HashSet:" />
       <TextField disable="true" layoutX="310.0" layoutY="134.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfTimePopulation" />
-      <Label layoutX="199.0" layoutY="172.0" text="Intersection (ms):" />
       <!-- Time to compute the intersection -->
+      <Label layoutX="199.0" layoutY="172.0" text="Intersection:" />
       <TextField disable="true" layoutX="310.0" layoutY="168.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfTimeIntersection" />
-      <Label layoutX="199.0" layoutY="206.0" text="Total time (ms):" />
       <!-- Total time -->
+      <Label layoutX="199.0" layoutY="206.0" text="Total time:" />
       <TextField disable="true" layoutX="310.0" layoutY="202.0" prefHeight="25.0" prefWidth="101.0" fx:id="tfTimeTotal" />
    </children>
 </Pane>

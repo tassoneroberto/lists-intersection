@@ -31,14 +31,17 @@ public class Model {
             sizeList = sizeListA;
             sizeHashSet = sizeListB;
         }
-        long startTimePopulation = System.currentTimeMillis();
-        // Fill List
+        LinkedList<Integer> listToHashSet = new LinkedList<Integer>();
+        // Create the two lists
+        for (int i = 0; i < sizeHashSet; i++)
+            listToHashSet.add(r.nextInt(Integer.MAX_VALUE));
         for (int i = 0; i < sizeList; i++)
             list.add(r.nextInt(Integer.MAX_VALUE));
+
         // Fill HashSet
-        while (hashset.size() < sizeHashSet) {
-            hashset.add(r.nextInt(Integer.MAX_VALUE));
-        }
+        long startTimePopulation = System.currentTimeMillis();
+        for (Integer i : listToHashSet)
+            hashset.add(i);
         populationTime = System.currentTimeMillis() - startTimePopulation;
 
         long startTimeIntersection = System.currentTimeMillis();

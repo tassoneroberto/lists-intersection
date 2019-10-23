@@ -69,9 +69,9 @@ public class Controller {
         model.intersection();
 
         tfOutputSize.setText(String.format("%d", model.getIntersectionSize()));
-        tfTimePopulation.setText(String.format("%d", model.getPopulationTime()));
-        tfTimeIntersection.setText(String.format("%d", model.getIntersectionTime()));
-        tfTimeTotal.setText(String.format("%d", model.getPopulationTime() + model.getIntersectionTime()));
+        tfTimePopulation.setText(String.format("%d ms", model.getPopulationTime()));
+        tfTimeIntersection.setText(String.format("%d ms", model.getIntersectionTime()));
+        tfTimeTotal.setText(String.format("%d ms", model.getPopulationTime() + model.getIntersectionTime()));
 
     }
 
