@@ -11,7 +11,7 @@ public class Model {
     private boolean listAinHashSet;
     private LinkedList<Integer> list;
     private HashSet<Integer> hashset;
-    private int intersectionSize;
+    private LinkedList<Integer> intersectionResult;
     private long populationTime;
     private long intersectionTime;
     private Random r;
@@ -47,14 +47,14 @@ public class Model {
         long startTimeIntersection = System.currentTimeMillis();
         for (Integer i : list)
             if (hashset.contains(i))
-                intersectionSize++;
+                intersectionResult.add(i);
         intersectionTime = System.currentTimeMillis() - startTimeIntersection;
     }
 
     private void clearData() {
         list = new LinkedList<Integer>();
         hashset = new HashSet<Integer>();
-        intersectionSize = 0;
+        intersectionResult = new LinkedList<Integer>();
     }
 
     public int getSizeListA() {
@@ -82,11 +82,7 @@ public class Model {
     }
 
     public int getIntersectionSize() {
-        return intersectionSize;
-    }
-
-    public void setIntersectionSize(int intersectionSize) {
-        this.intersectionSize = intersectionSize;
+        return intersectionResult.size();
     }
 
     public long getPopulationTime() {
