@@ -2,7 +2,7 @@ clean:
 	mvn clean
 
 build: clean
-	mvn install
+	mvn javafx:compile
 
 run:
 	mvn javafx:run
