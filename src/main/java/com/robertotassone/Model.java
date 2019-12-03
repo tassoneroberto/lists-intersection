@@ -6,9 +6,9 @@ import java.util.Random;
 
 public class Model {
 
-    private int sizeListA;
-    private int sizeListB;
+    private int sizeListA, sizeListB, sizeList, sizeHashSet;
     private boolean listAinHashSet;
+    LinkedList<Integer> listToHashSet;
     private LinkedList<Integer> list;
     private HashSet<Integer> hashset;
     private LinkedList<Integer> intersectionResult;
@@ -23,10 +23,8 @@ public class Model {
 
     public void intersection() {
         clearData();
-        int sizeList, sizeHashSet;
         sizeHashSet = listAinHashSet ? sizeListA : sizeListB;
         sizeList = listAinHashSet ? sizeListB : sizeListA;
-        LinkedList<Integer> listToHashSet = new LinkedList<Integer>();
         // Create the two lists
         for (int i = 0; i < sizeHashSet; i++)
             listToHashSet.add(r.nextInt(Integer.MAX_VALUE));
@@ -47,6 +45,7 @@ public class Model {
     }
 
     private void clearData() {
+        listToHashSet = new LinkedList<Integer>();
         list = new LinkedList<Integer>();
         hashset = new HashSet<Integer>();
         intersectionResult = new LinkedList<Integer>();
