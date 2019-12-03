@@ -24,8 +24,8 @@ public class Model {
     public void intersection() {
         clearData();
         int sizeList, sizeHashSet;
-        sizeList = listAinHashSet ? sizeListB : sizeListA;
         sizeHashSet = listAinHashSet ? sizeListA : sizeListB;
+        sizeList = listAinHashSet ? sizeListB : sizeListA;
         LinkedList<Integer> listToHashSet = new LinkedList<Integer>();
         // Create the two lists
         for (int i = 0; i < sizeHashSet; i++)
